@@ -20,6 +20,15 @@ function accum(str) {
     return res.join('-')
 }
 
+// without turning the string into an array - we gonna have a dash at the end that we need to remove
+function accum(s) {
+    let newString = '';
+    for (let i = 0; i < s.length; i++) {
+        newString += s.slice(i, i + 1).toUpperCase() + s.slice(i, i + 1).toLowerCase().repeat(i) + '-';
+    }
+    return newString.slice(0, -1)
+}
+
 // using map
 function accum(str) {
     return str.toLowerCase().split('').map(function (c, i) {
